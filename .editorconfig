@@ -1,0 +1,25 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+charset = UTF-8
+
+max_line_length = 160
+
+# https://unix.stackexchange.com/questions/18743/whats-the-point-in-adding-a-new-line-to-the-end-of-a-file
+# we add a new line to the end of each file to be unix conform (text files / grep, etc)
+insert_final_newline = true
+
+ij_any_wrap_long_lines = true
+ij_any_wrap_comments = true
+ij_any_blank_lines_around_class = 0
+indent_style = space
+indent_size = 4
+
+[*.kt]
+ij_kotlin_name_count_to_use_star_import = 999
+ij_kotlin_name_count_to_use_star_import_for_members = 999
