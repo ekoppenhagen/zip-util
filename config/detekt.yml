@@ -47,6 +47,8 @@ formatting:
         maxLineLength: 160
     MaximumLineLength:
         maxLineLength: 160
+    MultiLineIfElse:
+        active: false
     ParameterListWrapping:
         maxLineLength: 160
     PropertyWrapping:
@@ -59,6 +61,8 @@ naming:
     LambdaParameterNaming:
         active: true
         parameterPattern: '[a-z]+[A-Za-z0-9]{2,}|_'
+    MemberNameEqualsClassName:
+        active: false
     NonBooleanPropertyPrefixedWithIs:
         active: true
 
