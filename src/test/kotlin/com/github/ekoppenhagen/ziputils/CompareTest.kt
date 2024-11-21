@@ -2,18 +2,10 @@ package com.github.ekoppenhagen.ziputils
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.string.shouldEndWith
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import java.io.File
 
-class CompareTest {
-
-    private val testResources = "src/test/resources/"
-
-    @AfterEach
-    fun cleanUp() {
-        File("$testResources/temp/").deleteRecursively()
-    }
+class CompareTest : AbstractZipUtilsTest() {
 
     @Test
     fun `compare two identical zip files with the same name`() {
