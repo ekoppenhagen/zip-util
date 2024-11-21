@@ -1,20 +1,60 @@
 package com.github.ekoppenhagen.ziputils
 
+import com.github.ekoppenhagen.ziputils.Compare.byteArrays
+import com.github.ekoppenhagen.ziputils.Compare.files
 import java.io.File
 import java.io.InputStream
 import java.util.zip.ZipInputStream
 
+/**
+ * A collection of functions to compare zipped objects.
+ *
+ * @since 0.1.0
+ * @author Erik Koppenhagen
+ */
 object Compare {
 
+    /**
+     * Compares two zipped files and throws an exception if they are not equal.
+     *
+     * @param[zippedFile1] the first file to compare.
+     * @param[zippedFile2] the second file to compare.
+     * @param[enableFileNameComparison] enable comparison by file name before comparison by content (default: `true`).
+     *
+     * @exception ZipComparisonException
+     * if either the files have different names,
+     * the zipped directories have different content,
+     * or the content of two files is not equal.
+     *
+     * @since 0.1.0
+     * @see byteArrays
+     * @author Erik Koppenhagen
+     */
+    @Throws(ZipComparisonException::class)
     fun files(
         zippedFile1: File,
         zippedFile2: File,
-        skipFileNameComparison: Boolean = false,
+        enableFileNameComparison: Boolean = true,
     ) {
-        if (!skipFileNameComparison) compareFileNames(zippedFile1, zippedFile2)
+        if (enableFileNameComparison) compareFileNames(zippedFile1, zippedFile2)
         byteArrays(zippedFile1.readBytes(), zippedFile2.readBytes())
     }
 
+    /**
+     * Compares two byte arrays of zipped content and throws an exception if they are not equal.
+     *
+     * @param[zippedArray1] the first array to compare.
+     * @param[zippedArray2] the second array to compare.
+     *
+     * @exception ZipComparisonException
+     * if the zipped directories have different content,
+     * or the content of two files is not equal.
+     *
+     * @since 0.1.0
+     * @see files
+     * @author Erik Koppenhagen
+     */
+    @Throws(ZipComparisonException::class)
     fun byteArrays(
         zippedArray1: ByteArray,
         zippedArray2: ByteArray,
