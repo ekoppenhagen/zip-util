@@ -30,7 +30,7 @@ class CompareTest {
         val zipFileCopy = File("$testResources/temp/Test_Directory.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
-        Compare.files(referenceZipFile, zipFileCopy, enableFileNameComparison = true)
+        Compare.files(referenceZipFile, zipFileCopy, enableFileNameComparison = false)
     }
 
     @Test
@@ -51,7 +51,7 @@ class CompareTest {
         val zipFileCopy = File("$testResources/temp/Test_Directory_Copy.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
-        Compare.files(referenceZipFile, zipFileCopy, enableFileNameComparison = true)
+        Compare.files(referenceZipFile, zipFileCopy, enableFileNameComparison = false)
     }
 
     @Test
@@ -73,7 +73,7 @@ class CompareTest {
         val otherZipFile = File("$testResources/Test_Directory_2.zip")
 
         val expectedException = shouldThrow<ZipComparisonException> {
-            Compare.files(referenceZipFile, otherZipFile, enableFileNameComparison = true)
+            Compare.files(referenceZipFile, otherZipFile, enableFileNameComparison = false)
         }
         expectedException.message shouldEndWith "contents of file 'Test_Directory/subDirectory/picture.png' are not equal"
     }
