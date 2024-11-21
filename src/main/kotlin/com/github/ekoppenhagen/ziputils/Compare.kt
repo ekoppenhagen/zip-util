@@ -17,8 +17,8 @@ object Compare {
     /**
      * Compares two zipped files and throws an exception if they are not equal.
      *
-     * @param[zippedFile1] the first file to compare.
-     * @param[zippedFile2] the second file to compare.
+     * @param[zippedFile1] the first [File][java.io.File] to compare.
+     * @param[zippedFile2] the second [File][java.io.File] to compare.
      * @param[enableFileNameComparison] enable comparison by file name before comparison by content (default: `true`).
      *
      * @exception ZipComparisonException
@@ -43,8 +43,8 @@ object Compare {
     /**
      * Compares two byte arrays of zipped content and throws an exception if they are not equal.
      *
-     * @param[zippedArray1] the first array to compare.
-     * @param[zippedArray2] the second array to compare.
+     * @param[zippedArray1] the first [ByteArray][java.io.File] to compare.
+     * @param[zippedArray2] the second [ByteArray][java.io.File] to compare.
      *
      * @exception ZipComparisonException
      * if the zipped directories have different content,
