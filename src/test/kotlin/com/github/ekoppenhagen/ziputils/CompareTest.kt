@@ -63,7 +63,7 @@ class CompareTest : AbstractZipUtilsTest() {
     @Test
     fun `compare two zip files with different file content`() {
         val referenceZipFile = File("$testResources/Test_Directory.zip")
-        val otherZipFile = File("$testResources/Test_Directory_2.zip")
+        val otherZipFile = File("$testResources/Test_Directory_unequal.zip")
 
         val expectedException = shouldThrow<ZipComparisonException> {
             CompareZip.files(referenceZipFile, otherZipFile, enableFileNameComparison = false)
@@ -74,7 +74,7 @@ class CompareTest : AbstractZipUtilsTest() {
     @Test
     fun `compare two zip byte arrays with different file content`() {
         val referenceZipByteArray = File("$testResources/Test_Directory.zip").readBytes()
-        val otherZipByteArray = File("$testResources/Test_Directory_2.zip").readBytes()
+        val otherZipByteArray = File("$testResources/Test_Directory_unequal.zip").readBytes()
 
         val expectedException = shouldThrow<ZipComparisonException> {
             CompareZip.byteArrays(referenceZipByteArray, otherZipByteArray)
