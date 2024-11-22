@@ -2,12 +2,13 @@ package com.github.ekoppenhagen.ziputils
 
 import com.github.ekoppenhagen.ziputils.Compare.byteArrays
 import com.github.ekoppenhagen.ziputils.Compare.files
+import com.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
 import java.io.File
 import java.io.InputStream
 import java.util.zip.ZipInputStream
 
 /**
- * A collection of functions to compare zipped objects.
+ * A collection of functions to compare zipped objects content-wise.
  *
  * @since 0.1.0
  * @author Erik Koppenhagen
@@ -64,6 +65,7 @@ object Compare {
         compareContent(zippedArray1Content, zippedArray2Content)
     }
 
+    @Throws(ZipComparisonException::class)
     private fun compareFileNames(zipFile1: File, zipFile2: File) {
         if (zipFile1.name != zipFile2.name)
             throw ZipComparisonException("zip files have different names")
@@ -77,6 +79,7 @@ object Compare {
                 .sortedBy(Pair<String, ByteArray>::first)
         }
 
+    @Throws(ZipComparisonException::class)
     private fun compareContent(
         zipFile1Content: List<Pair<String, ByteArray>>,
         zipFile2Content: List<Pair<String, ByteArray>>,

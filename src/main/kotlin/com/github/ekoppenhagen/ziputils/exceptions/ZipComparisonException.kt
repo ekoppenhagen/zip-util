@@ -1,4 +1,4 @@
-package com.github.ekoppenhagen.ziputils
+package com.github.ekoppenhagen.ziputils.exceptions
 
 /**
  * Thrown to indicate that a comparison of two zipped objects failed.

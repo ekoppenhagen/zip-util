@@ -1,5 +1,6 @@
 package com.github.ekoppenhagen.ziputils
 
+import com.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.string.shouldEndWith
 import org.junit.jupiter.api.Test
@@ -10,7 +11,7 @@ class CompareTest : AbstractZipUtilsTest() {
     @Test
     fun `compare two identical zip files with the same name`() {
         val referenceZipFile = File("$testResources/Test_Directory.zip")
-        val zipFileCopy = File("$testResources/temp/Test_Directory.zip")
+        val zipFileCopy = File("$tempDirectory/Test_Directory.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
         Compare.files(referenceZipFile, zipFileCopy)
@@ -19,7 +20,7 @@ class CompareTest : AbstractZipUtilsTest() {
     @Test
     fun `compare two identical zip files with the same name while skipping file name comparison`() {
         val referenceZipFile = File("$testResources/Test_Directory.zip")
-        val zipFileCopy = File("$testResources/temp/Test_Directory.zip")
+        val zipFileCopy = File("$tempDirectory/Test_Directory.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
         Compare.files(referenceZipFile, zipFileCopy, enableFileNameComparison = false)
@@ -28,7 +29,7 @@ class CompareTest : AbstractZipUtilsTest() {
     @Test
     fun `compare two identical zip files with different names`() {
         val referenceZipFile = File("$testResources/Test_Directory.zip")
-        val zipFileCopy = File("$testResources/temp/Test_Directory_Copy.zip")
+        val zipFileCopy = File("$tempDirectory/Test_Directory_Copy.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
         val expectedException = shouldThrow<ZipComparisonException> {
@@ -40,7 +41,7 @@ class CompareTest : AbstractZipUtilsTest() {
     @Test
     fun `compare two identical zip files with different names while skipping file name comparison`() {
         val referenceZipFile = File("$testResources/Test_Directory.zip")
-        val zipFileCopy = File("$testResources/temp/Test_Directory_Copy.zip")
+        val zipFileCopy = File("$tempDirectory/Test_Directory_Copy.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
         Compare.files(referenceZipFile, zipFileCopy, enableFileNameComparison = false)
@@ -50,8 +51,8 @@ class CompareTest : AbstractZipUtilsTest() {
     fun `compare two zip files with different content`() {
         val referenceZipFile = File("$testResources/Test_Directory.zip")
         val otherDirectory = File("$testResources/Test_Directory")
-        File("$testResources/temp/").mkdir()
-        val otherZipFile = Zip.file(otherDirectory, File("$testResources/temp/Test_Directory.zip"))
+        File("$tempDirectory/").mkdir()
+        val otherZipFile = Zip.file(otherDirectory, File("$tempDirectory/Test_Directory.zip"))
 
         val expectedException = shouldThrow<ZipComparisonException> {
             Compare.files(referenceZipFile, otherZipFile)
