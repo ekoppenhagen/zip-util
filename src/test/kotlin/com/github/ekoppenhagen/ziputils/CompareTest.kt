@@ -14,7 +14,7 @@ class CompareTest : AbstractZipUtilsTest() {
         val zipFileCopy = File("$tempDirectory/Test_Directory.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
-        Compare.files(referenceZipFile, zipFileCopy)
+        CompareZip.files(referenceZipFile, zipFileCopy)
     }
 
     @Test
@@ -23,7 +23,7 @@ class CompareTest : AbstractZipUtilsTest() {
         val zipFileCopy = File("$tempDirectory/Test_Directory.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
-        Compare.files(referenceZipFile, zipFileCopy, enableFileNameComparison = false)
+        CompareZip.files(referenceZipFile, zipFileCopy, enableFileNameComparison = false)
     }
 
     @Test
@@ -33,7 +33,7 @@ class CompareTest : AbstractZipUtilsTest() {
         referenceZipFile.copyTo(zipFileCopy)
 
         val expectedException = shouldThrow<ZipComparisonException> {
-            Compare.files(referenceZipFile, zipFileCopy)
+            CompareZip.files(referenceZipFile, zipFileCopy)
         }
         expectedException.message shouldEndWith "zip files have different names"
     }
@@ -44,7 +44,7 @@ class CompareTest : AbstractZipUtilsTest() {
         val zipFileCopy = File("$tempDirectory/Test_Directory_Copy.zip")
         referenceZipFile.copyTo(zipFileCopy)
 
-        Compare.files(referenceZipFile, zipFileCopy, enableFileNameComparison = false)
+        CompareZip.files(referenceZipFile, zipFileCopy, enableFileNameComparison = false)
     }
 
     @Test
@@ -55,7 +55,7 @@ class CompareTest : AbstractZipUtilsTest() {
         val otherZipFile = Zip.file(otherDirectory, File("$tempDirectory/Test_Directory.zip"))
 
         val expectedException = shouldThrow<ZipComparisonException> {
-            Compare.files(referenceZipFile, otherZipFile)
+            CompareZip.files(referenceZipFile, otherZipFile)
         }
         expectedException.message shouldEndWith "zip files contain different files/directories"
     }
@@ -66,7 +66,7 @@ class CompareTest : AbstractZipUtilsTest() {
         val otherZipFile = File("$testResources/Test_Directory_2.zip")
 
         val expectedException = shouldThrow<ZipComparisonException> {
-            Compare.files(referenceZipFile, otherZipFile, enableFileNameComparison = false)
+            CompareZip.files(referenceZipFile, otherZipFile, enableFileNameComparison = false)
         }
         expectedException.message shouldEndWith "contents of file 'Test_Directory/subDirectory/picture.png' are not equal"
     }
@@ -77,7 +77,7 @@ class CompareTest : AbstractZipUtilsTest() {
         val otherZipByteArray = File("$testResources/Test_Directory_2.zip").readBytes()
 
         val expectedException = shouldThrow<ZipComparisonException> {
-            Compare.byteArrays(referenceZipByteArray, otherZipByteArray)
+            CompareZip.byteArrays(referenceZipByteArray, otherZipByteArray)
         }
         expectedException.message shouldEndWith "contents of file 'Test_Directory/subDirectory/picture.png' are not equal"
     }

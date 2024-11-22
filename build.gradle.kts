@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.github.ekoppenhagen"
-version = "0.1.5"
+version = "0.1.6"
 
 repositories(RepositoryHandler::mavenCentral)
 kotlin { jvmToolchain(21) }

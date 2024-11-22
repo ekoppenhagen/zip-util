@@ -1,7 +1,7 @@
 package com.github.ekoppenhagen.ziputils
 
-import com.github.ekoppenhagen.ziputils.Compare.byteArrays
-import com.github.ekoppenhagen.ziputils.Compare.files
+import com.github.ekoppenhagen.ziputils.CompareZip.byteArrays
+import com.github.ekoppenhagen.ziputils.CompareZip.files
 import com.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
 import java.io.File
 import java.io.InputStream
@@ -13,7 +13,7 @@ import java.util.zip.ZipInputStream
  * @since 0.1.0
  * @author Erik Koppenhagen
  */
-object Compare {
+object CompareZip {
 
     /**
      * Compares two zipped files and throws an exception if they are not equal.
