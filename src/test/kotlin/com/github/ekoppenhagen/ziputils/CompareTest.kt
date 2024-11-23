@@ -57,7 +57,7 @@ class CompareTest : AbstractZipUtilsTest() {
         val expectedException = shouldThrow<ZipComparisonException> {
             CompareZip.files(referenceZipFile, otherZipFile)
         }
-        expectedException.message shouldEndWith "zip files contain different files/directories"
+        expectedException.message shouldEndWith "zip files contain different files/directories: Test_Directory/emptyDirectory/ <-> Test_Directory/sample.zip"
     }
 
     @Test

@@ -88,7 +88,7 @@ object CompareZip {
             .zip(zipFile2Content)
             .forEach { (zipFile1Element, zipFile2Element) ->
                 if (zipFile1Element.first != zipFile2Element.first)
-                    throw ZipComparisonException("zip files contain different files/directories")
+                    throw ZipComparisonException("zip files contain different files/directories: ${zipFile1Element.first} <-> ${zipFile2Element.first}")
                 if (!zipFile1Element.second.contentEquals(zipFile2Element.second))
                     throw ZipComparisonException("contents of file '${zipFile1Element.first}' are not equal")
             }
