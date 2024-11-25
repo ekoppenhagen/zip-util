@@ -66,7 +66,6 @@ object Zip {
         source: ByteArray,
         contentName: String,
     ): ByteArray {
-
         ByteArrayOutputStream().use {
             ZipOutputStream(it).use { zipOutputStream ->
                 zipByteArray(contentName, source, zipOutputStream)
