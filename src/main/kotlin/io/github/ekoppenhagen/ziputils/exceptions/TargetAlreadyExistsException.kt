@@ -1,4 +1,4 @@
-package com.github.ekoppenhagen.ziputils.exceptions
+package io.github.ekoppenhagen.ziputils.exceptions
 
 import java.io.File
 

@@ -1,6 +1,6 @@
-package com.github.ekoppenhagen.ziputils
+package io.github.ekoppenhagen.ziputils
 
-import com.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
+import io.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.string.shouldEndWith
 import org.junit.jupiter.api.Test

@@ -1,5 +1,5 @@
 # 🗜 zip-utils
-![Version](https://img.shields.io/badge/version-0.2.1-red.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.2.2-red.svg?cacheSeconds=2592000)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ekoppenhagen/zip-utils)](#)
 [![License](https://img.shields.io/badge/License-MIT%20License-green.svg)](https://github.com/ekoppenhagen/zip-utils/blob/main/LICENSE)
 
@@ -32,7 +32,7 @@ Just add this project to your dependencies and you are good to go.
 ### Gradle
 
 ```kotlin
-implementation("com.github.ekoppenhagen:zip-utils:0.2.1")
+implementation("com.github.ekoppenhagen:zip-utils")
 ```
 
 ### Maven
@@ -41,7 +41,6 @@ implementation("com.github.ekoppenhagen:zip-utils:0.2.1")
 <dependency>
     <groupId>com.github.ekoppenhagen</groupId>
     <artifactId>zip-utils</artifactId>
-    <version>0.2.1</version>
 </dependency>
 ```
 
@@ -96,3 +95,6 @@ Feel free to take a look at my other work or contact me:
 
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/ekoppenhagen)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=fff)](https://www.linkedin.com/in/erik-koppenhagen/)
+
+
+

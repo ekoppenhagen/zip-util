@@ -1,7 +1,7 @@
-package com.github.ekoppenhagen.ziputils
+package io.github.ekoppenhagen.ziputils
 
-import com.github.ekoppenhagen.ziputils.exceptions.TargetAlreadyExistsException
-import com.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
+import io.github.ekoppenhagen.ziputils.exceptions.TargetAlreadyExistsException
+import io.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldEndWith

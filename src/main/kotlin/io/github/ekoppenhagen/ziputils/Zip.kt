@@ -1,6 +1,6 @@
-package com.github.ekoppenhagen.ziputils
+package io.github.ekoppenhagen.ziputils
 
-import com.github.ekoppenhagen.ziputils.exceptions.TargetAlreadyExistsException
+import io.github.ekoppenhagen.ziputils.exceptions.TargetAlreadyExistsException
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.util.zip.ZipEntry
@@ -17,8 +17,8 @@ object Zip {
     /**
      * Compresses a file. Works with directories and files.
      *
-     * @param[source] the [File][java.io.File] to compress.
-     * @param[target] the resulting compressed [File][java.io.File] (default: create a new file at the same location called `<source_file_name>.zip`).
+     * @param[source] the [File][File] to compress.
+     * @param[target] the resulting compressed [File][File] (default: create a new file at the same location called `<source_file_name>.zip`).
      * @param[overwriteExistingFile] don't fail if the target already exists and overwrite it (default: `false`).
      *
      * @return the resulting compressed file.
@@ -54,7 +54,7 @@ object Zip {
     /**
      * Compresses a byte array. Does not work for directories.
      *
-     * @param[source] the [ByteArray][kotlin.ByteArray] to compress.
+     * @param[source] the [ByteArray][ByteArray] to compress.
      * @param[contentName] the file name of the content, including the file ending. _This is not the name of the resulting zip_.
      *
      * @return the resulting compressed byte array.

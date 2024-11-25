@@ -1,8 +1,8 @@
-package com.github.ekoppenhagen.ziputils
+package io.github.ekoppenhagen.ziputils
 
-import com.github.ekoppenhagen.ziputils.CompareZip.byteArrays
-import com.github.ekoppenhagen.ziputils.CompareZip.files
-import com.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
+import io.github.ekoppenhagen.ziputils.CompareZip.byteArrays
+import io.github.ekoppenhagen.ziputils.CompareZip.files
+import io.github.ekoppenhagen.ziputils.exceptions.ZipComparisonException
 import java.io.File
 import java.io.InputStream
 import java.util.zip.ZipInputStream
@@ -18,8 +18,8 @@ object CompareZip {
     /**
      * Compares two zipped files and throws an exception if they are not equal.
      *
-     * @param[zippedFile1] the first [File][java.io.File] to compare.
-     * @param[zippedFile2] the second [File][java.io.File] to compare.
+     * @param[zippedFile1] the first [File][File] to compare.
+     * @param[zippedFile2] the second [File][File] to compare.
      * @param[enableFileNameComparison] enable comparison by file name before comparison by content (default: `true`).
      *
      * @exception ZipComparisonException
@@ -44,8 +44,8 @@ object CompareZip {
     /**
      * Compares two byte arrays of zipped content and throws an exception if they are not equal.
      *
-     * @param[zippedArray1] the first [ByteArray][java.io.File] to compare.
-     * @param[zippedArray2] the second [ByteArray][java.io.File] to compare.
+     * @param[zippedArray1] the first [ByteArray][File] to compare.
+     * @param[zippedArray2] the second [ByteArray][File] to compare.
      *
      * @exception ZipComparisonException
      * if the zipped directories have different content,
